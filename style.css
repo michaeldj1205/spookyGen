@@ -4,19 +4,32 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background: radial-gradient(circle at top, #0d0d0d, #000);
   color: #fff;
   text-align: center;
   height: 100vh;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  background: #000;
+  background-size: cover;
+  background-position: center;
+  transition: background 0.8s ease-in-out;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 0;
 }
 
 .container {
+  position: relative;
+  z-index: 1;
   background: rgba(0, 0, 0, 0.7);
-  padding: 40px;
+  padding: 40px 30px;
   border-radius: 20px;
   box-shadow: 0 0 40px rgba(255, 0, 0, 0.3);
   width: 90%;
@@ -25,9 +38,10 @@ body {
 
 h1 {
   font-family: 'Creepster', cursive;
-  font-size: 2.2em;
+  font-size: 2em;
   color: #ff7518;
   margin-bottom: 10px;
+  text-shadow: 0 0 10px #ff4500;
 }
 
 p {
@@ -37,21 +51,23 @@ p {
 
 input {
   width: 80%;
-  padding: 10px;
+  padding: 12px;
   margin: 15px 0;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 1em;
+  outline: none;
 }
 
 button {
   background: #ff7518;
   border: none;
   color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 12px 24px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
+  font-size: 1em;
   transition: 0.3s;
 }
 
@@ -61,14 +77,22 @@ button:hover {
 }
 
 .result {
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 #spookyName {
   font-family: 'Creepster', cursive;
   font-size: 1.8em;
-  color: #ff0000;
-  text-shadow: 0 0 10px #ff0000, 0 0 20px #660000;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ff0000;
+  line-height: 1.3em;
+  text-shadow: 0 0 15px #ff0000, 0 0 30px #660000;
+  max-width: 100%;
+  word-wrap: break-word;
   animation: fadeIn 1s ease-in-out;
 }
 
@@ -85,4 +109,12 @@ footer {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 480px) {
+  h1 { font-size: 1.6em; }
+  #spookyName { font-size: 1.5em; padding: 10px 15px; }
+  input, button { width: 90%; font-size: 0.95em; }
+  .container { padding: 25px 20px; }
 }
